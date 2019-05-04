@@ -20,6 +20,20 @@ window.onload = function() {
   for(let i = 0; i < charityArray.length; i++) {
     findCharity('WA', 'Seattle', charityArray[i])
 	}
+  generateIcons();
+}
+
+function generateIcons() {
+	$("interests").innerHTML = "";
+	for(let i = 0; i < charityArray.length; i++) {
+		let newIcon = document.createElement("div");
+		let newIconText = document.createElement("p");
+		newIconText.appendChild(document.createTextNode(categories[i]));
+		newIcon.appendChild(newIconText);
+		newIcon.setAttribute("class", "selected");
+		newIcon.setAttribute("id", i);
+		$("interests").appendChild(newIcon);
+	}
 }
 
 function findCharity(state, city, category) {
@@ -41,6 +55,15 @@ function findCharity(state, city, category) {
 		console.log(obj);
 		//console.log(JSON.stringify(myJson));
 	});
+}
+
+/**
+* Returns the element that has the ID attribute with the specified value.
+* @param {string} id - element ID
+* @return {object} DOM object associated with id.
+*/
+function $(id) {
+		return document.getElementById(id);
 }
 
 })();
