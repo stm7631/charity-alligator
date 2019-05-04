@@ -20,6 +20,59 @@ img {
   height: 400px;
 }
 
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 500px;
+}
+
+#interests {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#interests div {
+  border-radius: 5px;
+  width: 275px;
+  height: 75px;
+  left: 802px;
+  top: 480px;
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+.selected {
+  background: #54C1FF;
+}
+
+.notSelected {
+  background: #C4C4C4;
+}
+
+#interests div p {
+  width: 315px;
+  height: 60px;
+  left: 477px;
+  top: 501px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+  margin-top: 20px;
+}
+
+#bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content:space-between;
+  flex-direction: column;
+  margin: auto;
+}
+
 #getstarted {
   display: flex;
   justify-content: center;
