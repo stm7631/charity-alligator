@@ -1,5 +1,6 @@
-findCharity('WA', 'Seattle', 'Religion')
+//findCharity('WA', 'Seattle', 'Religion')
 //pls push
+getImage('panda')
 
 function findCharity(state, city, category) {
 	var categories = ['Animals', 
