@@ -58,11 +58,13 @@ function select() {
 * @param {object} id - Element the user has selected.
 */
 function addIcon(id) {
+	sessionStorage.clear();
 	 if (selectedIcons.includes($(id).innerText)) {
 			selectedIcons.pop($(id).innerText);
 	 } else {
 			selectedIcons.push($(id).innerText);
 	 }
+	 sessionStorage.setItem('charityArray', JSON.stringify(selectedIcons));
 }
 
 findCharity('WA', 'Seattle', 'Religion')
