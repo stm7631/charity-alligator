@@ -3,7 +3,7 @@
 html {
   background: linear-gradient(228.67deg, #C5F4FF 20.66%, #BBFFD6 89.56%);
   background-repeat: no-repeat;
-  background-size: 4000px 4000px;
+  background-size: 3000px 3000px;
 }
 
 body {
@@ -25,59 +25,6 @@ body {
 img {
   margin: auto;
   height: 50vh;
-}
-
-input {
-  padding: 10px;
-  margin: 10px;
-  width: 500px;
-}
-
-#interests {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-#interests div {
-  border-radius: 5px;
-  width: 275px;
-  height: 75px;
-  left: 802px;
-  top: 480px;
-  display: flex;
-  text-align: center;
-  margin: auto;
-}
-
-.selected {
-  background: #54C1FF;
-}
-
-.notSelected {
-  background: #C4C4C4;
-}
-
-#interests div p {
-  width: 315px;
-  height: 60px;
-  left: 477px;
-  top: 501px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 30px;
-  line-height: 35px;
-  margin-top: 20px;
-}
-
-#bars {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content:space-between;
-  flex-direction: column;
-  margin: auto;
 }
 
 #getstarted {
