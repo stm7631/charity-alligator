@@ -1,4 +1,7 @@
-//findCharity('WA', 'Seattle', 'Religion')=======
+"use strict";
+
+(function() {
+
 var categories = ['Animals',
 					'Arts, Culture, Humanities',
 					'Education',
@@ -11,6 +14,8 @@ var categories = ['Animals',
 					'Community Development',
 					'Research and Public Policy']
 
+var selectedIcons = [];
+
 window.onload = function(){
 
 	generateIcons();
@@ -19,20 +24,50 @@ window.onload = function(){
 
 function generateIcons() {
 	$("interests").innerHTML = "";
-	for(let i = 0; i < list.books.length; i++) {
-		let newBook = document.createElement("div");
-		let newBookImg = document.createElement("img");
-		newBookImg.src= "books\" + list.books[i].folder + "\cover.jpg"
-		let newBookTitle = document.createElement("p");
-		newbookTitle.appendChild(document.createTextNode(list.books[i].title));
-		newBook.appendChild(newBookImg);
-		newBook.appendChild(newBookTitle);
-		newBook.addEventListener("click", function(){
-				//SOMETHING
-		});
-		$("allbooks").appendChild(newBook);
+	for(let i = 0; i < categories.length; i++) {
+		let newIcon = document.createElement("div");
+		let newIconText = document.createElement("p");
+		newIconText.appendChild(document.createTextNode(categories[i]));
+		newIcon.appendChild(newIconText);
+		newIcon.setAttribute("class", "notSelected");
+		newIcon.setAttribute("id", i);
+		newIcon.onmousedown = select;
+		$("interests").appendChild(newIcon);
 	}
 }
+
+/**
+* Whenever a button is clicked, add a shadow to indicate it is selected.
+* If clicked again, remove the indicator.
+* Send to function to check if the element is in the array.
+*/
+function select() {
+	 if (this.classList.contains("selected")) {
+			this.classList.remove("selected");
+			this.classList.add("notSelected");
+			addIcon(this.id);
+	 } else {
+			this.classList.add("selected");
+			this.classList.remove("notSelected");
+			addIcon(this.id);
+	 }
+}
+
+/**
+* Checks to see if element is in the array, adding if not and removing if it is.
+* @param {object} id - Element the user has selected.
+*/
+function addIcon(id) {
+	 if (selectedIcons.includes($(id).innerText)) {
+			selectedIcons.pop($(id).innerText);
+	 } else {
+			selectedIcons.push($(id).innerText);
+	 }
+}
+
+findCharity('WA', 'Seattle', 'Religion')
+//pls push
+findImage('shane')
 
 function findCharity(state, city, category) {
 	var index = categories.indexOf(category) + 1
@@ -56,64 +91,37 @@ function findCharity(state, city, category) {
 }
 
 /**
-<<<<<<< HEAD
 * Returns the element that has the ID attribute with the specified value.
 * @param {string} id - element ID
 * @return {object} DOM object associated with id.
 */
 function $(id) {
 		return document.getElementById(id);
-* Clear all cards from previous games. User can select how many cards they want generated.
-* For each card, give card attributes, call a function that assigns patterns, make clickable,
-* and add to game box.
-*/
-function generateCards() {
-	 $("game").innerHTML = "";
-	 let cardAmount;
-	 if (!qs("input").checked) {
-			cardAmount = 12;
-	 } else {
-			cardAmount = 9;
-	 }
-	 for (let i = 0; i < cardAmount; i++) {
-			let node = document.createElement("div");
-			node.setAttribute("class", "card");
-			setImgId(node);
-			node.onmousedown = select;
-			$("game").appendChild(node);
-	 }
 }
 
-/**
-* Whenever a card is clicked, add a shadow to indicate it is selected.
-* If clicked again, remove the indicator.
-* Send to function to check if the element is in the array.
-*/
-function select() {
-	 if (this.classList.contains("selected")) {
-			this.classList.remove("selected");
-			addSet(this.id);
-	 } else {
-			this.classList.add("selected");
-			addSet(this.id);
-	 }
-	 if (setSelect.length == 3) {
-			set();
-			setTimeout(function() {
-				 setSelect = Array();
-			}, 1000);
-	 }
+function findImage(search) {
+	let serviceKey = '770568ef78cb47fc8179289276a026ff';
+	var request = new XMLHttpRequest();
+	var url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+	url += "?q=" + encodeURIComponent(search);
+	request.open("GET", url);
+	request.setRequestHeader("Ocp-Apim-Subscription-Key", serviceKey)
+	request.setRequestHeader("Accept", "application/json");
+	request.addEventListener("load", handleResponse);
+	request.addEventListener("error", function() {
+        renderErrorMessage("Error completing request");
+    });
+    request.addEventListener("abort", function() {
+        renderErrorMessage("Request aborted");
+    });
+    request.send();
 }
 
-/**
-* Checks to see if element is in the array, adding if not and removing if it is.
-* @param {object} id - Element the user has selected.
-*/
-function addSet(id) {
-	 if (setSelect.includes(id)) {
-			setSelect.pop(id);
-	 } else {
-			setSelect.push(id);
-	 }
->>>>>>> 438441cbaadf14b086b9b848c83f98b0d71e718b
+function handleResponse() {
+	var json = this.responseText.trim();
+	json = JSON.parse(json);
+	console.log(json.value[0].contentUrl);
+	console.log('test')
 }
+
+})();
