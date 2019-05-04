@@ -46,7 +46,7 @@ input {
   top: 480px;
   display: flex;
   text-align: center;
-  margin: 20px;
+  margin: auto;
 }
 
 .selected {
