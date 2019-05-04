@@ -3,7 +3,7 @@
 html {
   background: linear-gradient(228.67deg, #C5F4FF 20.66%, #BBFFD6 89.56%);
   background-repeat: no-repeat;
-  background-size: 3000px 3009px;
+  background-size: 3000px 3000px;
 }
 
 body {
@@ -17,13 +17,15 @@ body {
   flex-direction: column;
 
   width: 60%;
-  height: 100vh;
+  height: 100%;
   margin: auto;
+  padding-bottom: 20px;
   background: white;
 }
 
 img {
   margin: auto;
+  margin-top: 50px;
   height: 400px;
 }
 
@@ -59,7 +61,6 @@ input {
   display: flex;
   align-items: center;
   margin: 10px;
-
   border-radius: 5px;
 }
 
@@ -99,12 +100,15 @@ input {
   font-weight: normal;
   height: 100px;
   width: 400px;
-  margin-bottom: 10vh;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+p {
+  margin: 10px;
 }
 
 .interest {
