@@ -3,7 +3,6 @@
 (function() {
 
 var charityArray = JSON.parse(sessionStorage.getItem('charityArray'));
-console.log(charityArray)
 
 var categories = ['Animals',
 					'Arts, Culture, Humanities',
