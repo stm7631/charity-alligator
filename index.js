@@ -1,7 +1,44 @@
+var categories = ['Animals',
+					'Arts, Culture, Humanities',
+					'Education',
+					'Environment',
+					'Health',
+					'Human Services',
+					'International',
+					'Human and Civil Rights',
+					'Religion',
+					'Community Development',
+					'Research and Public Policy']
+
+window.onload = function(){
+
+	generateIcons();
+
+};
+
+function generateIcons() {
+	$("interests").innerHTML = "";
+	for(let i = 0; i < list.books.length; i++) {
+		let newBook = document.createElement("div");
+		let newBookImg = document.createElement("img");
+		newBookImg.src= "books\" + list.books[i].folder + "\cover.jpg"
+		let newBookTitle = document.createElement("p");
+		newbookTitle.appendChild(document.createTextNode(list.books[i].title));
+		newBook.appendChild(newBookImg);
+		newBook.appendChild(newBookTitle);
+		newBook.addEventListener("click", function(){
+				//SOMETHING
+		});
+		$("allbooks").appendChild(newBook);
+	}
+}
+
 findCharity('WA', 'Seattle', 'Religion')
 //pls push
 
 function findCharity(state, city, category) {
+<<<<<<< HEAD
+=======
 	var categories = ['Animals',
 					  'Arts, Culture, Humanities',
 					  'Education',
@@ -13,6 +50,7 @@ function findCharity(state, city, category) {
 					  'Religion',
 					  'Community Development',
 					  'Research and Public Policy']
+>>>>>>> 438441cbaadf14b086b9b848c83f98b0d71e718b
 	var index = categories.indexOf(category) + 1
 	var baseUrl = 'https://api.data.charitynavigator.org/v2/Organizations?'
 	state = '&state=' + state
@@ -34,6 +72,14 @@ function findCharity(state, city, category) {
 }
 
 /**
+<<<<<<< HEAD
+* Returns the element that has the ID attribute with the specified value.
+* @param {string} id - element ID
+* @return {object} DOM object associated with id.
+*/
+function $(id) {
+		return document.getElementById(id);
+=======
 * Clear all cards from previous games. User can select how many cards they want generated.
 * For each card, give card attributes, call a function that assigns patterns, make clickable,
 * and add to game box.
@@ -86,4 +132,5 @@ function addSet(id) {
 	 } else {
 			setSelect.push(id);
 	 }
+>>>>>>> 438441cbaadf14b086b9b848c83f98b0d71e718b
 }
