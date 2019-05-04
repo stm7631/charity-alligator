@@ -66,6 +66,7 @@ function addIcon(id) {
 			selectedIcons.push($(id).innerText);
 	 }
 	 sessionStorage.setItem('charityArray', JSON.stringify(selectedIcons));
+	 console.log(selectedIcons)
 }
 
 findCharity('WA', 'Seattle', 'Religion')

@@ -3,6 +3,7 @@
 (function() {
 
 var charityArray = JSON.parse(sessionStorage.getItem('charityArray'));
+console.log(charityArray)
 
 var categories = ['Animals',
 					'Arts, Culture, Humanities',
@@ -28,7 +29,7 @@ function generateIcons() {
 	for(let i = 0; i < charityArray.length; i++) {
 		let newIcon = document.createElement("div");
 		let newIconText = document.createElement("p");
-		newIconText.appendChild(document.createTextNode(categories[i]));
+		newIconText.appendChild(document.createTextNode(charityArray[i]));
 		newIcon.appendChild(newIconText);
 		newIcon.setAttribute("class", "selected");
 		newIcon.setAttribute("id", i);
