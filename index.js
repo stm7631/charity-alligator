@@ -70,6 +70,7 @@ function addIcon(id) {
 
 findCharity('WA', 'Seattle', 'Religion')
 //pls push
+findImage('shane')
 
 function findCharity(state, city, category) {
 	var index = categories.indexOf(category) + 1
@@ -99,6 +100,31 @@ function findCharity(state, city, category) {
 */
 function $(id) {
 		return document.getElementById(id);
+}
+
+function findImage(search) {
+	let serviceKey = '770568ef78cb47fc8179289276a026ff';
+	var request = new XMLHttpRequest();
+	var url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+	url += "?q=" + encodeURIComponent(search);
+	request.open("GET", url);
+	request.setRequestHeader("Ocp-Apim-Subscription-Key", serviceKey)
+	request.setRequestHeader("Accept", "application/json");
+	request.addEventListener("load", handleResponse);
+	request.addEventListener("error", function() {
+        renderErrorMessage("Error completing request");
+    });
+    request.addEventListener("abort", function() {
+        renderErrorMessage("Request aborted");
+    });
+    request.send();
+}
+
+function handleResponse() {
+	var json = this.responseText.trim();
+	json = JSON.parse(json);
+	console.log(json.value[0].contentUrl);
+	console.log('test')
 }
 
 })();
