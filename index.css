@@ -1,14 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto");
 
-<<<<<<< HEAD
 html {
   background: linear-gradient(228.67deg, #C5F4FF 20.66%, #BBFFD6 89.56%);
   background-repeat: no-repeat;
   background-size: 3000px 3009px;
 }
 
-=======
->>>>>>> e8c2a2f0d5f0ed4e825e8ab85958931963d1ecfc
 body {
   font-family: "Montserrat", san-serif;
   font-weight: bold;
@@ -48,7 +45,7 @@ input {
   top: 480px;
   display: flex;
   text-align: center;
-  margin: auto;
+  margin: 20px;
 }
 
 .selected {
@@ -70,7 +67,7 @@ input {
   font-weight: normal;
   font-size: 30px;
   line-height: 35px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #bars {
