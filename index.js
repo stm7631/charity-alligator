@@ -23,6 +23,11 @@ window.onload = function(){
 
 };
 
+function generateCities() {
+
+	
+}
+
 function generateIcons() {
 	$("interests").innerHTML = "";
 	for(let i = 0; i < categories.length; i++) {

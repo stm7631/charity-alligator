@@ -126,13 +126,86 @@ p {
 
 .charity {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   border-radius: 5px;
-  background: red;
+  background: lightgrey;
+  font-size: 1.5rem;
 }
 
-.charity img {
-  position: absolute;
-  clip: rect(50px, 50px, 50px, 50px);
+.charity p {
+  margin: 5px 5px 0px 5px;
 }
+
+.charityimg {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 5px 5px 15px 15px;
+  object-fit: cover;
+  height: 20vh;
+  width: 100%;
+}
+
+.tags {
+  background: #7DFFA2;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.tags p {
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  font-size: 1rem;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #BBFFD6;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+
+  
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  font-size: 16px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+  max-height: 200px;
+  overflow: auto;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
