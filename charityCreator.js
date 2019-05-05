@@ -66,6 +66,7 @@ function populateCharities(responseObj) {
     let newIcon = document.createElement("div");
     let newIconPic = document.createElement("img");
     findImage(responseObj[i].organization.charityName);
+    console.log(photoLink);
     newIconPic.src = photoLink;
     newIconPic.setAttribute("class", "charityimg");
     let newIconTagDiv = document.createElement("div");
