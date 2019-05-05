@@ -126,15 +126,37 @@ p {
 
 .charity {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   border-radius: 5px;
-  background: red;
+  background: lightgrey;
+  font-size: 1.5rem;
 }
 
-.charity img {
-  position: absolute;
-  clip: rect(50px, 50px, 50px, 50px);
+.charity p {
+  margin: 5px 5px 0px 5px;
+}
+
+.charityimg {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 5px 5px 15px 15px;
+  object-fit: cover;
+  height: 20vh;
+  width: 100%;
+}
+
+.tags {
+  background: #7DFFA2;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.tags p {
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  font-size: 1rem;
 }
 
 

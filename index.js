@@ -18,6 +18,7 @@ var selectedIcons = [];
 
 window.onload = function(){
 
+	sessionStorage.clear();
 	generateIcons();
 
 };
