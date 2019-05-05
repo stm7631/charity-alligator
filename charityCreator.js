@@ -61,13 +61,11 @@ function findCharity(state, city, category) {
 
 function populateCharities(responseObj) {
 
-	for(let i = 0; i < 1; i++) {
+	for(let i = 0; i < responseObj.length; i++) {
     console.log(responseObj[i])
     let newIcon = document.createElement("div");
     let newIconPic = document.createElement("img");
-    findImage(responseObj[i].organization.charityName)
-    console.log(photoLink)
-    newIconPic.src = photoLink
+    newIconPic.src = "placeholder.png"
     newIconPic.setAttribute("class", "charityimg")
     let newIconTagDiv = document.createElement("div");
     newIconTagDiv.setAttribute("class", "tags")

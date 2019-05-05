@@ -128,6 +128,7 @@ p {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  margin: 10px;
   border-radius: 5px;
   background: lightgrey;
   font-size: 1.5rem;
