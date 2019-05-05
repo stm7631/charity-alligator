@@ -54,7 +54,6 @@ function findCharity(state, city, category) {
 	.then(function(response){
 
 		var obj = JSON.parse(JSON.stringify(response));
-		console.log(obj);
 		populateCharities(obj);
 	});
 }
@@ -62,13 +61,11 @@ function findCharity(state, city, category) {
 function populateCharities(responseObj) {
 
 	for(let i = 0; i < responseObj.length; i++) {
-    console.log(responseObj[i])
 		let link = document.createElement("a");
-		link.href = "https://www.google.com";
+		link.href = responseObj[i].websiteURL;
     let newIcon = document.createElement("div");
     let newIconPic = document.createElement("img");
     findImage(responseObj[i].organization.charityName);
-    console.log(photoLink);
     newIconPic.src = photoLink;
     newIconPic.setAttribute("class", "charityimg");
     let newIconTagDiv = document.createElement("div");

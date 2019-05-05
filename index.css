@@ -105,7 +105,7 @@ input {
 
 a {
   text-decoration: none;
-  color: white;
+  color: inherit;
 }
 
 p {
@@ -129,7 +129,7 @@ p {
   align-items: flex-start;
   flex-direction: column;
   border-radius: 5px;
-  background: lightgrey;
+  background: #ffffff;
   font-size: 1.5rem;
   margin: 10px;
 }
@@ -142,7 +142,7 @@ p {
   overflow: hidden;
   margin: 0px;
   padding: 0px;
-  border-radius: 5px 5px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
   object-fit: cover;
   height: 20vh;
   width: 100%;
