@@ -4,6 +4,8 @@
 
 var charityArray = JSON.parse(sessionStorage.getItem('charityArray'));
 
+var photoLink;
+
 var categories = ['Animals',
 					'Arts, Culture, Humanities',
 					'Education',
@@ -53,8 +55,57 @@ function findCharity(state, city, category) {
 
 		var obj = JSON.parse(JSON.stringify(response));
 		console.log(obj);
-		//console.log(JSON.stringify(myJson));
+		populateCharities(obj)
 	});
+}
+
+function populateCharities(responseObj) {
+
+	for(let i = 0; i < 1; i++) {
+    console.log(responseObj[i])
+    let newIcon = document.createElement("div");
+    let newIconPic = document.createElement("img");
+    findImage(responseObj[i].organization.charityName)
+    console.log(photoLink)
+    newIconPic.src = photoLink
+    newIconPic.setAttribute("class", "charityimg")
+    let newIconTagDiv = document.createElement("div");
+    newIconTagDiv.setAttribute("class", "tags")
+		let newIconTagDivName = document.createElement("p");
+		newIconTagDiv.appendChild(document.createTextNode(responseObj[i].category.categoryName));
+    newIcon.appendChild(newIconPic)
+    let newIconTitle = document.createElement("p")
+    newIconTitle.appendChild(document.createTextNode(responseObj[i].organization.charityName))
+    newIcon.appendChild(newIconTitle)
+    newIcon.appendChild(newIconTagDiv);
+		newIcon.setAttribute("class", "charity");
+		$("charities").appendChild(newIcon);
+	}
+}
+
+function findImage(search) {
+	let serviceKey = '770568ef78cb47fc8179289276a026ff';
+	var request = new XMLHttpRequest();
+	var url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
+	url += "?q=" + encodeURIComponent(search);
+	request.open("GET", url);
+	request.setRequestHeader("Ocp-Apim-Subscription-Key", serviceKey)
+	request.setRequestHeader("Accept", "application/json");
+	request.addEventListener("load", handleResponse);
+	request.addEventListener("error", function() {
+        renderErrorMessage("Error completing request");
+    });
+    request.addEventListener("abort", function() {
+        renderErrorMessage("Request aborted");
+    });
+    request.send();
+}
+
+function handleResponse() {
+	var json = this.responseText.trim();
+	json = JSON.parse(json);
+  console.log(json)
+	photoLink = json.value[0].thumbnailUrl;
 }
 
 /**
