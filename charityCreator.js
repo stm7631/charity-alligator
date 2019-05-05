@@ -116,4 +116,8 @@ function $(id) {
 		return document.getElementById(id);
 }
 
+setTimeout(function(){
+	 $("loading").outerHTML = "";
+}, 10000);
+
 })();

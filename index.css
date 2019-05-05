@@ -41,7 +41,7 @@ input {
   justify-content: center;
   align-items: center;
   margin: auto;
-
+  color: white;
   background: #7DFFA2;
   border-radius: 10px;
   font-family: "Roboto", sans-serif;
@@ -101,6 +101,7 @@ input {
   font-weight: normal;
   height: 100px;
   width: 400px;
+  color: white;
 }
 
 a {
