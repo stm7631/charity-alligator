@@ -63,6 +63,8 @@ function populateCharities(responseObj) {
 
 	for(let i = 0; i < responseObj.length; i++) {
     console.log(responseObj[i])
+		let link = document.createElement("a");
+		link.href = "https://www.google.com";
     let newIcon = document.createElement("div");
     let newIconPic = document.createElement("img");
     newIconPic.src = "placeholder.png"
@@ -77,7 +79,8 @@ function populateCharities(responseObj) {
     newIcon.appendChild(newIconTitle)
     newIcon.appendChild(newIconTagDiv);
 		newIcon.setAttribute("class", "charity");
-		$("charities").appendChild(newIcon);
+		link.appendChild(newIcon);
+		$("charities").appendChild(link);
 	}
 }
 
@@ -86,7 +89,7 @@ function findImage(search) {
 	var request = new XMLHttpRequest();
 	var url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
 	url += "?q=" + encodeURIComponent(search);
-	request.open("GET", url);
+	request.open("GET", url, false);
 	request.setRequestHeader("Ocp-Apim-Subscription-Key", serviceKey)
 	request.setRequestHeader("Accept", "application/json");
 	request.addEventListener("load", handleResponse);
