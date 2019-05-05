@@ -16,11 +16,11 @@ var categories = ['Animals',
 					'Human and Civil Rights',
 					'Religion',
 					'Community Development',
-					'Research and Public Policy']
+					'Research and Public Policy'];
 
 window.onload = function() {
   for(let i = 0; i < charityArray.length; i++) {
-    findCharity('WA', 'Seattle', charityArray[i])
+    findCharity('WA', 'Seattle', charityArray[i]);
 	}
   generateIcons();
 }
@@ -39,14 +39,14 @@ function generateIcons() {
 }
 
 function findCharity(state, city, category) {
-	var index = categories.indexOf(category) + 1
-	var baseUrl = 'https://api.data.charitynavigator.org/v2/Organizations?'
-	state = '&state=' + state
-	city = '&city=' + city
-	var key = '&app_key=623fc447ff759952d021e70b4559a478'
-	var id = 'app_id=e18f7075'
-	category = '&categoryID=' + index
-	var query = baseUrl + id + key + state + city + category
+	var index = categories.indexOf(category) + 1;
+	var baseUrl = 'https://api.data.charitynavigator.org/v2/Organizations?';
+	state = '&state=' + state;
+	city = '&city=' + city;
+	var key = '&app_key=623fc447ff759952d021e70b4559a478';
+	var id = 'app_id=e18f7075';
+	category = '&categoryID=' + index;
+	var query = baseUrl + id + key + state + city + category;
 	fetch(query)
 	.then(function(response){
 		return response.json();
@@ -55,7 +55,7 @@ function findCharity(state, city, category) {
 
 		var obj = JSON.parse(JSON.stringify(response));
 		console.log(obj);
-		populateCharities(obj)
+		populateCharities(obj);
 	});
 }
 
@@ -67,16 +67,18 @@ function populateCharities(responseObj) {
 		link.href = "https://www.google.com";
     let newIcon = document.createElement("div");
     let newIconPic = document.createElement("img");
-    newIconPic.src = "placeholder.png"
-    newIconPic.setAttribute("class", "charityimg")
+    findImage(responseObj[i].organization.charityName);
+    console.log(photoLink);
+    newIconPic.src = photoLink;
+    newIconPic.setAttribute("class", "charityimg");
     let newIconTagDiv = document.createElement("div");
-    newIconTagDiv.setAttribute("class", "tags")
+    newIconTagDiv.setAttribute("class", "tags");
 		let newIconTagDivName = document.createElement("p");
 		newIconTagDiv.appendChild(document.createTextNode(responseObj[i].category.categoryName));
-    newIcon.appendChild(newIconPic)
-    let newIconTitle = document.createElement("p")
-    newIconTitle.appendChild(document.createTextNode(responseObj[i].organization.charityName))
-    newIcon.appendChild(newIconTitle)
+    newIcon.appendChild(newIconPic);
+    let newIconTitle = document.createElement("p");
+    newIconTitle.appendChild(document.createTextNode(responseObj[i].organization.charityName));
+    newIcon.appendChild(newIconTitle);
     newIcon.appendChild(newIconTagDiv);
 		newIcon.setAttribute("class", "charity");
 		link.appendChild(newIcon);
@@ -84,7 +86,7 @@ function populateCharities(responseObj) {
 	}
 }
 
-function findImage(search) {
+function findImage(search, responseObj) {
 	let serviceKey = '770568ef78cb47fc8179289276a026ff';
 	var request = new XMLHttpRequest();
 	var url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
@@ -105,7 +107,6 @@ function findImage(search) {
 function handleResponse() {
 	var json = this.responseText.trim();
 	json = JSON.parse(json);
-  console.log(json)
 	photoLink = json.value[0].thumbnailUrl;
 }
 
