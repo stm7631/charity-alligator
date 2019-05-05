@@ -75,7 +75,7 @@ function addIcon(id) {
 
 findCharity('WA', 'Seattle', 'Religion')
 //pls push
-findImage('shane')
+findImage('GRIST')
 
 function findCharity(state, city, category) {
 	var index = categories.indexOf(category) + 1
